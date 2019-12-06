@@ -1,0 +1,24 @@
+image: gcc
+
+build:
+  stage: build
+  before_script:
+    - apt update && apt -y install libpam0g-dev
+    - git clone https://github.com/udp/json-parser
+    - cd json-parser
+    - autoreconf -fiv
+    - ./configure
+    - make install
+    - cd ..
+  script:
+    - make pam
+  artifacts:
+    paths:
+      - pam_oauth2.so
+
+test:
+  stage: test
+  before_script:
+    - apt update && apt -y install libpam0g-dev
+  script:
+    - make test
