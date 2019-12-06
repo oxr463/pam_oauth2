@@ -1,6 +1,6 @@
 # pam_oauth2
 OAuth2-Module for PAM. Implemented with respect to RFC 6749, RFC 7009 and
-RFC 7662, propietary stuff like Google and Facebook are left out.
+RFC 7662, proprietary stuff like Google and Facebook are left out.
 
 Authentication (RFC 6749) may be done by using a grant-code that is
 transformed into a token, a token itself and finally - of course - with a
