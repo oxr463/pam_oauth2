@@ -16,8 +16,8 @@ revocation-endpoint.
 
 ## Requirements
 
-*  [Linux-Pam](http://www.linux-pam.org/)
-*  [cURL](https://curl.haxx.se/)
+*  [Linux-Pam](http://www.linux-pam.org)
+*  [cURL](https://curl.haxx.se)
 *  [json-parser](https://github.com/udp/json-parser)
 
 ## Building

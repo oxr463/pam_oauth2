@@ -2,7 +2,7 @@
  * OAuth 2.0 Authentication for PAM
  * 
  * This PAM-Module implements OAuth 2.0 Authentication for PAM using
- * standard-methods from RFC 6749, RFC 7009 and RFC 7662 and no propietary
+ * standard-methods from RFC 6749, RFC 7009 and RFC 7662 and no proprietary
  * stuff at all.
  * 
  * Depending on configuration all authentication-schems from RFC 6749
