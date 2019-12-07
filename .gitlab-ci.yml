@@ -1,9 +1,21 @@
 image: gcc
 
+stages:
+  - check
+  - build
+  - test
+
+check:
+  stage: check
+  before_script:
+    - apt update && apt install -y flawfinder
+  script:
+    - flawfinder .
+
 build:
   stage: build
   before_script:
-    - apt update && apt -y install libpam0g-dev
+    - apt update && apt install -y libpam0g-dev
     - git clone https://github.com/udp/json-parser
     - cd json-parser
     - autoreconf -fiv
@@ -19,6 +31,6 @@ build:
 test:
   stage: test
   before_script:
-    - apt update && apt -y install libpam0g-dev
+    - apt update && apt install -y libpam0g-dev
   script:
     - make test
