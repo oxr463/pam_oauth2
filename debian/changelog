@@ -1,0 +1,5 @@
+pam-oauth2 (0.0.1-alpha-1) UNRELEASED; urgency=medium
+
+  * Initial release.
+
+ -- Lucas Ramage <ramage.lucas@protonmail.com>  Fri, 13 Dec 2019 19:15:25 +0000

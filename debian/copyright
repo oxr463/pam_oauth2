@@ -1,0 +1,9 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: pam_oauth2
+Upstream-Contact: Bernd Holzmueller <bernd@quarxconnect.de>
+Source: https://github.com/quarxConnect/pam_oauth2
+
+Files: *
+Copyright: 2017 Bernd Holzmueller <bernd@quarxconnect.de>
+License: GPL-3+
+  [LICENSE TEXT]

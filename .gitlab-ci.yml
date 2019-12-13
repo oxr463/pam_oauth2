@@ -1,5 +1,10 @@
 image: gcc
 
+variables:
+  DEBVER: "1"
+  VERSION: "0.0.1-alpha"
+  JSON_PARSER_MIRROR: "https://gitlab.com/oxr463/json-parser/-/jobs/484303930/artifacts/raw"
+
 stages:
   - check
   - build
@@ -28,9 +33,31 @@ build:
     paths:
       - pam_oauth2.so
 
+deb:
+  stage: build
+  before_script:
+    - apt update && apt install -y debhelper devscripts libpam0g-dev
+    - curl -O "${JSON_PARSER_MIRROR}/libjsonparser1.1_1.1.0-1_amd64.deb"
+    - curl -O "${JSON_PARSER_MIRROR}/libjsonparser-dev_1.1.0-1_amd64.deb"
+    - dpkg -i libjsonparser1.1_1.1.0-1_amd64.deb
+    - dpkg -i libjsonparser-dev_1.1.0-1_amd64.deb
+    - mkdir -p build
+  script:
+    - tar cvzf "../pam-oauth2_${VERSION}.orig.tar.gz" --exclude='.git*' --exclude='*.deb' .
+    - mv ../*.orig.tar.gz .
+    - tar -xf *.orig.tar.gz -C build/
+    - cd build
+    - debuild --prepend-path=/usr/local/bin -us -uc -d -i'(.*)'
+  after_script:
+    - rm -rf build
+  artifacts:
+    paths:
+      - "*.deb"
+
 test:
   stage: test
   before_script:
     - apt update && apt install -y libpam0g-dev
   script:
     - make test
+
