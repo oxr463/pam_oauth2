@@ -28,7 +28,7 @@ debug-syslog:	all
 
 # Build CLI-Testprogramm to interface pam_oauth2 directly
 cli:	pam_oauth2_core.o pam_oauth2_cli.o
-	$(CC) $(LDFLAGS) $^ -lpam -lcurl -ljsonparser -o pam_oauth2
+	$(CC) $(LDFLAGS) $^ -lpam -lcurl -ljsonparser -lm -o pam_oauth2
 
 # Build the actual pam-module
 pam:	pam_oauth2_core.o pam_oauth2_pamlib.o
